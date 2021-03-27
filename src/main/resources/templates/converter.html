@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Конвертер</title>
+</head>
+<body align="middle">
+<h1>Конвертер валют</h1>
+<form  class="align-middle" th:action="@{/convert}" method="post">
+
+    <select name="from">
+        <option th:each="valute: ${valutes}"
+                th:value="${valute.id}" th:text="${valute.charCode}+ ' ('+${valute.name}+')'"
+                th:selected="${valute.id} == ${userModel.from}">
+    </select>
+    <select name="to">
+        <option th:each="valute: ${valutes}"
+                th:value="${valute.id}"  th:text="${valute.charCode}+ ' ('+${valute.name}+')'"
+                th:selected="${valute.id} == ${userModel.to}">
+    </select>
+   <br>
+    <input name="fromQ" type="text" size="40" value="1" th:value="${userModel.fromQ}">
+    <input  name="toQ" type="text" size="40" th:value="${userModel.toQ}" >
+
+    <div style="margin-top: 10px" class="form-group">
+        <div class="col-sm-6 controls">
+            <button type="submit" class="btn btn-primary">Конвертировать</button>
+        </div>
+    </div>
+</form>
+
+<a th:href="@{/history}" th:text="История"/>
+<!--<form class="align-middle" th:action="@{/history}" method="get">-->
+<!--    <div class="col-sm-6 controls">-->
+<!--        <button type="submit" class="btn btn-primary">История</button>-->
+<!--    </div>-->
+<!--</form>-->
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>История</title>
+</head>
+<body align="middle">
+<h1>История</h1>
+    <div align="middle" class="container">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Исходная валюта</th>
+                <th>Целевая валюта</th>
+                <th>Исходная сумма</th>
+                <th>Получаемая сумма</th>
+                <th>Дата</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="h : ${history}">
+
+                <td th:text="${h.fromValute}"/>
+                <td th:text="${h.toValute}"/>
+                <td th:text="${h.fromValue}"/>
+                <td th:text="${h.toValue}"/>
+                <td th:text="${h.date}"/>
+
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
