@@ -3,37 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>Конвертер</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body align="middle">
-<h1>Конвертер валют</h1>
-<form  class="align-middle" th:action="@{/convert}" method="post">
 
-    <select name="from">
-        <option th:each="valute: ${valutes}"
-                th:value="${valute.id}" th:text="${valute.charCode}+ ' ('+${valute.name}+')'"
-                th:selected="${valute.id} == ${userModel.from}">
-    </select>
-    <select name="to">
-        <option th:each="valute: ${valutes}"
-                th:value="${valute.id}"  th:text="${valute.charCode}+ ' ('+${valute.name}+')'"
-                th:selected="${valute.id} == ${userModel.to}">
-    </select>
-   <br>
-    <input name="fromQ" type="text" size="40" value="1" th:value="${userModel.fromQ}">
-    <input  name="toQ" type="text" size="40" th:value="${userModel.toQ}" >
-
-    <div style="margin-top: 10px" class="form-group">
-        <div class="col-sm-6 controls">
-            <button type="submit" class="btn btn-primary">Конвертировать</button>
-        </div>
+<div class="container">
+    <h1>Конвертер</h1>
+    <div class="row">
+        <form th:action="@{/convert}" method="post">
+            <div class="form-row">
+                <div class="col-sm-6 col-lg-6 form-group">
+                    <select name="from" class="custom-select form-control">
+                        <option th:each="valute: ${valutes}"
+                                th:value="${valute.id}" th:text="${valute.charCode}+ ' ('+${valute.name}+')'"
+                                th:selected="${valute.id} == ${userModel.from}">
+                    </select>
+                </div>
+                <div class="col-sm-6 col-lg-6 form-group">
+                    <select name="to" class="custom-select form-control">
+                        <option th:each="valute: ${valutes}"
+                                th:value="${valute.id}" th:text="${valute.charCode}+ ' ('+${valute.name}+')'"
+                                th:selected="${valute.id} == ${userModel.to}">
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-sm-6 col-lg-6 form-group">
+                    <input name="fromQ" type="text" size="40" value="1" th:value="${userModel.fromQ}"
+                           class="form-control">
+                </div>
+                <div class="col-sm-6 col-lg-6 form-group">
+                    <input name="toQ" type="text" size="40" th:value="${userModel.toQ}" class="form-control">
+                </div>
+            </div>
+            <div style="margin-top: 10px" class="form-row controls form-group">
+                <button type="submit" class="btn btn-primary">Конвертировать</button>
+            </div>
+        </form>
     </div>
-</form>
-
-<a th:href="@{/history}" th:text="История"/>
-<!--<form class="align-middle" th:action="@{/history}" method="get">-->
-<!--    <div class="col-sm-6 controls">-->
-<!--        <button type="submit" class="btn btn-primary">История</button>-->
-<!--    </div>-->
-<!--</form>-->
+    <div class="row control">
+        <a th:href="@{/history}"
+           class="btn btn-default">История</a>
+    </div>
+</div>
 </body>
 </html>

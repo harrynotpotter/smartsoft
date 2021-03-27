@@ -3,10 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>История</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 </head>
 <body align="middle">
-<h1>История</h1>
-    <div align="middle" class="container">
+
+<div class="container">
+    <h1>История</h1>
+    <div align="middle">
+
         <table class="table table-hover">
             <thead>
             <tr>
@@ -15,9 +22,9 @@
                 <th>Исходная сумма</th>
                 <th>Получаемая сумма</th>
                 <th>Дата</th>
-
             </tr>
             </thead>
+
             <tbody>
             <tr th:each="h : ${history}">
 
@@ -27,10 +34,14 @@
                 <td th:text="${h.toValue}"/>
                 <td th:text="${h.date}"/>
 
-
             </tr>
             </tbody>
         </table>
     </div>
+</div>
+
+<div>
+<a href="https://www.w3schools.com/html/html_links.asp" th:href="@{/converter}" class="btn btn-default">Конвертер</a>
+</div>
 </body>
 </html>

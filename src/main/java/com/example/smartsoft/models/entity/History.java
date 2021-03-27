@@ -16,7 +16,7 @@ import java.util.Date;
 @Entity
 public class History {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String fromValute;
     private String toValute;
