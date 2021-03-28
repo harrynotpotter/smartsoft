@@ -3,10 +3,10 @@ Java 15,
 Maven,
 PostgresSQL 13
 
-##Сборка
+## Сборка
 `mvn clean compile`
 
-##Запуск
+## Запуск
 `mvn spring-boot:run`
 
 ## Примечания
