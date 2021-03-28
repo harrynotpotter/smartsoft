@@ -57,6 +57,5 @@ VALUES ('user1', '{noop}user1', true),
 
 INSERT INTO authorities
 VALUES ('user1', 'ROLE_ADMIN'),
-       ('user2', 'ROLE_USER'),
-       ('user2', 'ROLE_ADMIN');
+       ('user2', 'ROLE_USER');
 
